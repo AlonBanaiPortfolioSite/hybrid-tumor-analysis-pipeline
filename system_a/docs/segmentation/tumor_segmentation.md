@@ -45,7 +45,11 @@ Hysteresis thresholding using computed statistics to segment all tumor regions.
 - Thresholds calibrated on bright slices → false positives in dimmer slices
 - Classical approach cannot adapt to systematic intensity gradients
 
-[Placeholder: Add example images showing successful case vs. rare failure case due to z-drift]
+<!-- TODO: Add example images showing successful case vs. rare failure case due to z-drift -->
+<!-- IMAGES NEEDED: 
+- good_segmentation_example.png (shows successful hysteresis)
+- bad_segmentation_zdrift.png (shows false positives in dim slices)
+-->
 
 ---
 
@@ -84,7 +88,8 @@ Tumor Segmentation
 [Future] nnU-Net Refinement (if needed)
 ```
 
-[Placeholder: Add pipeline diagram from poster]
+![Tumor segmentation pipeline](/images/tumor_segmentation_fish.png)
+*Classical segmentation workflow for System A tumor channel*
 
 ---
 
