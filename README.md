@@ -14,8 +14,8 @@ Standard deep learning approaches fail in this regime. This work demonstrates a 
 
 ## The Challenge
 
-![Multi-channel microscopy data](images/data_challenges.png)
-*Multi-channel microscopy examples showing data artifacts (placeholder - to be added)*
+![Multi-channel microscopy data](images/system_images.png)
+*Multi-channel microscopy examples showing data artifacts
 
 Real-world 3D microscopy data presents technical challenges absent from clean benchmarks:
 
