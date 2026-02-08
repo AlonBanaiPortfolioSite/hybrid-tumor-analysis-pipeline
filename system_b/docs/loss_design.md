@@ -111,7 +111,7 @@ Increased penalty applies when ground truth is tumor:
 note that this configuration get the lowest FN at the price sgnificant FP rise while Confusion-Aware Loss weight 0.1 get the second lowest FN with minor FP rise. 
 However, visual inspection of representative subset showed less critical error for downstream task at Weighted Cross-Entropy weight 1.1.
 
-![Confusion-aware loss results](/images/confusion_loss_results.png)
+![Custom loss results](/images/loss_comparison.png)
 *Tumor FN rate vs FP rate for different confusion penalty weights.*
 
 ---
