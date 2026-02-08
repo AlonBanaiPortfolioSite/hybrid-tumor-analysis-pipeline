@@ -112,7 +112,7 @@ note that this configuration get the lowest FN at the price sgnificant FP rise w
 However, visual inspection of representative subset showed less critical error for downstream task at Weighted Cross-Entropy weight 1.1.
 
 ![Custom loss results](/images/loss_comparison.png)
-*Tumor FN rate vs FP rate for different confusion penalty weights.*
+*Tumor FN rate vs FP rate for different loss functions.*
 
 ---
 
