@@ -85,37 +85,31 @@ Increased penalty applies when ground truth is tumor:
 
 ## Experimental Results
 
-Tested two independent loss modifications to reduce tumor class false negatives.
+**Weighted Cross-Entropy:**
 
-### Modification 1: Weighted Cross-Entropy on Tumor Class
+| Weight | Tumor FN Rate | Tumor FP Rate |
+|--------|---------------|---------------|
+| 1.0 (baseline) | 5.15% | 0.132% |
+| **1.1** | **3.88%** | **0.187%** |
+| 1.25 | 4.64% | 0.129% |
+| 1.5 | 4.48% | 0.160% |
+| 3.0 | 7.68% | 0.113% |
 
-Increased CE penalty when ground truth is tumor class.
+**Confusion-Aware Loss:**
 
-**Tested configurations:**
-- Default (w=1.0): Tumor FN=5.15%, FP=3.36%
-- Tumor 1.1×: Tumor FN=3.88%, FP=4.78%
-- Tumor 1.25×: Tumor FN=4.64%, FP=3.31%
-- Tumor 1.5×: Tumor FN=4.48%, FP=4.09%
-- 3× Tumor: Tumor FN=7.68%, FP=2.93%
+| Weight | Tumor FN Rate | Tumor FP Rate |
+|--------|---------------|---------------|
+| 0.0 (baseline) | 5.15% | 0.132% |
+| 0.05 | 5.49% | 0.113% |
+| 0.075 | 5.35% | 0.116% |
+| 0.1 | 4.21% | 0.149% |
+| 0.11 | 6.40% | 0.125% |
+| 0.15 | 5.13% | 0.141% |
+| 0.2 | 5.77% | 0.112% |
 
-![Weighted CE results](/images/weighted_ce_results.png)
-*Tumor FN rate vs FP rate for different weight values. Each point is one configuration.*
-
----
-
-### Modification 2: Confusion-Aware Loss
-
-Explicit penalty for tumor→healthy misclassification.
-
-**Tested configurations:**
-- Default: Tumor FN=5.15%, FP=3.36%
-- Conf 0.05: Tumor FN=4.71%, FP=4.09%
-- Conf 0.075: Tumor FN=5.49%, FP=2.90%
-- Conf 0.1: Tumor FN=5.35%, FP=2.96%
-- Conf 0.11: Tumor FN=4.21%, FP=3.81%
-- Conf 0.15: Tumor FN=6.40%, FP=3.21%
-- Conf 0.2: Tumor FN=5.13%, FP=3.60%
-- 3× Organoid: Tumor FN=7.68%, FP=2.93%
+**Selected:** Weighted CE with 1.1× tumor class weight (FN=3.88%, FP=0.187%). 
+note that this configuration get the lowest FN at the price sgnificant FP rise while Confusion-Aware Loss weight 0.1 get the second lowest FN with minor FP rise. 
+However, visual inspection of representative subset showed less critical error for downstream task at Weighted Cross-Entropy weight 1.1.
 
 ![Confusion-aware loss results](/images/confusion_loss_results.png)
 *Tumor FN rate vs FP rate for different confusion penalty weights.*
